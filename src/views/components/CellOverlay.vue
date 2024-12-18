@@ -12,9 +12,9 @@ function clearMouseUpHandler() {
 </script>
 
 <template>
-  <div class="absolute left-[50%] ml-[-12rem] w-72 h-72 bg-white z-50 flex flex-wrap">
+  <div>
     <OverlayCell
-      v-for="i in 10"
+      v-for="i in 5"
       :key="i"
       :val="i < 10 ? i : '❌'"
       @value-mouseup="valueMouseUpHandler"

@@ -14,7 +14,7 @@ function mouseUpHandler(value: any) {
 <template>
   <div
     @mouseup="mouseUpHandler(props.val)"
-    class="flex w-24 h-24 text-5xl items-center justify-center border hover:bg-green-50 cursor-pointer select-none relative"
+    class="flex w-24 h-24 text-5xl items-center justify-center border bg-white hover:bg-green-50 cursor-pointer select-none relative"
   >
     {{ props.val }}
   </div>
