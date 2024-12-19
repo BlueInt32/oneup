@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue';
-import CellOverlay from './CellOverlay.vue';
 import GameRow from './GameRow.vue';
+import ValueOverlay from './ValueOverlay.vue';
 const isSwipeActive = ref(false);
 const currentCoordsActive = ref([null, null]) as Ref<Array<number | null>>;
 const values = ref([]) as Ref<Array<Array<string>>>;
@@ -40,13 +40,13 @@ function overlayClearMouseUpHandler() {
     v-if="isSwipeActive"
     class="overlay opacity-40 absolute top-0 left-0 z-40 w-full h-full bg-black"
   ></div>
-  <CellOverlay
+  <ValueOverlay
     class="absolute w-72 ml-[-9rem] mt-[-5rem] h-auto bg-white z-50 flex flex-wrap"
     :style="{ left: overlayPositionX, top: overlayPositionY }"
     v-if="isSwipeActive"
     @value-mouseup="overlayValueMouseUpHandler"
     @clear-mouseup="overlayClearMouseUpHandler"
-  ></CellOverlay>
+  ></ValueOverlay>
   <div class="flex justify-center" v-for="(row, index) in values" :key="index">
     <GameRow :row-index="index" @mouse-down="mouseDownHandler" :rowValues="row" />
   </div>
