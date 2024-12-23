@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import OverlayCell from './OverlayCell.vue';
 const emit = defineEmits(['value-mouseup', 'clear-mouseup']);
-const val = ref(1);
+const props = defineProps(['maxVal']);
+
 function valueMouseUpHandler(value: number) {
   emit('value-mouseup', value);
 }
@@ -14,9 +14,9 @@ function clearMouseUpHandler() {
 <template>
   <div>
     <OverlayCell
-      v-for="i in 5"
+      v-for="i in props.maxVal + 1"
       :key="i"
-      :val="i < 10 ? i : '❌'"
+      :val="i < props.maxVal + 1 ? i : '❌'"
       @value-mouseup="valueMouseUpHandler"
       @clear-mouseup="clearMouseUpHandler"
     />

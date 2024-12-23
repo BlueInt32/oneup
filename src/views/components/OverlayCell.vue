@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 const props = defineProps(['val']);
 const emit = defineEmits(['value-mouseup', 'clear-mouseup']);
+onMounted(() => {
+  console.log(props.val);
+});
 function mouseUpHandler(value: any) {
   if (value === '❌') {
-    console.log('clear');
     emit('clear-mouseup');
   } else {
     emit('value-mouseup', value);
